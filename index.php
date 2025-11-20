@@ -1,3 +1,12 @@
+<?php
+    include 'koneksi.php';
+
+    $query = "select * from mahasiswa;";
+    $sql = mysqli_query($conn,$query);
+    $no = 0;
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +42,7 @@
                 <thead>
                     <tr>
                         <th><center>No</center></th>
+                        <th>Nim</th>
                         <th>Nama mahasiswa</th>
                         <th>Jenis Kelamin</th>
                         <th>Foto</th>
@@ -41,36 +51,36 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    while($result = mysqli_fetch_assoc($sql)){
+                    ?>
                 <tr class="align-bottom">
-                    <td><center>1.</center></td>
-                    <td>Nayla Amelia</td>
-                    <td>perempuan</td>
-                    <td><img src="img/nayla.jpg" style="width: 50px; "></td>
-                    <td>cimahi</td>
+                    <td><center>
+                        <?php echo ++$no; ?>
+                    </center></td>
                     <td>
-                        <a href="kelola.php?ubah=1" type="button" class="btn btn-success btn-sm">
+                        <?php echo $result['NIM']; ?>
+                    </td>
+                    <td>
+                        <?php echo $result['nama_mahasiswa']; ?>
+                    </td>
+                    <td>
+                        <?php echo $result['jenis_kelamin']; ?>
+                    </td>
+                    <td><img src="img/<?php echo $result['foto_mahasiswa']; ?>" style="width: 50px; "></td>
+                    <td><?php echo $result['alamat']; ?></td>
+                    <td>
+                        <a href="kelola.php?ubah=<?php echo $result['id_mahasiswa']; ?>" type="button" class="btn btn-success btn-sm">
                             edit
                         </a>
-                        <a href="proses.php?hapus=1" type="button" class="btn btn-danger btn-sm">
+                        <a href="proses.php?hapus=<?php echo $result['id_mahasiswa']; ?>" type="button" class="btn btn-danger btn-sm">
                             hapus
                         </a>
                     </td>
                 </tr>
-                <tr class="align-bottom">
-                    <td><center>2.</center></td>
-                    <td>Moch Fadhlil</td>
-                    <td>Laki-Laki</td>
-                    <td><img src="img/fadil.jpg" style="width: 50px; "></td>
-                    <td>bandung</td>
-                    <td>
-                        <a href="kelola.php?ubah=2" type="button" class="btn btn-success btn-sm">
-                            edit
-                        </a>
-                        <a href="proses.php?hapus=2" type="button" class="btn btn-danger btn-sm">
-                            hapus
-                        </a>
-                    </td>
-                </tr>
+                <?php
+                 }
+                ?>
                 </tbody>
             </table>
         </div>
