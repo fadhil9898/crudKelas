@@ -25,7 +25,7 @@
             CRUD <cite title="Source Title">Create Read Update Delete</cite>
         </figcaption>
         </figure>
-        <a href="tambahData.html" type="button" class="btn btn-primary mb-4">
+        <a href="kelola.php" type="button" class="btn btn-primary mb-4">
             tambah data
         </a>
         <div class="table-responsive">
@@ -48,12 +48,12 @@
                     <td><img src="img/nayla.jpg" style="width: 50px; "></td>
                     <td>cimahi</td>
                     <td>
-                        <button type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah=1" type="button" class="btn btn-success btn-sm">
                             edit
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm">
+                        </a>
+                        <a href="proses.php?hapus=1" type="button" class="btn btn-danger btn-sm">
                             hapus
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 <tr class="align-bottom">
@@ -63,12 +63,12 @@
                     <td><img src="img/fadil.jpg" style="width: 50px; "></td>
                     <td>bandung</td>
                     <td>
-                        <button type="button" class="btn btn-success btn-sm">
+                        <a href="kelola.php?ubah=2" type="button" class="btn btn-success btn-sm">
                             edit
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm">
+                        </a>
+                        <a href="proses.php?hapus=2" type="button" class="btn btn-danger btn-sm">
                             hapus
-                        </button>
+                        </a>
                     </td>
                 </tr>
                 </tbody>
