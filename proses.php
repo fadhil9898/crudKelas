@@ -6,25 +6,36 @@ include 'koneksi.php';
             $nim = $_POST['nim'];
             $nama_mahasiswa = $_POST['nama'];
             $jenis_kelamin = $_POST['jenis_kelamin'];
-            $foto = $_POST['foto'];
+            $foto = "image2.jpg";
             $alamat = $_POST['alamat'];
 
-            $query = "INSERT into mahasiswa values(null '$nim', '$nama_mahasiswa', '$jenis_kelamin', '$foto', '$alamat')";
+            $query = "INSERT INTO mahasiswa VALUES (null, '$nim', '$nama_mahasiswa', '$jenis_kelamin', '$foto', '$alamat')";
             $sql = mysqli_query($conn, $query);
+
             if($sql){
-                echo "berhasil <a href='index.php'>[Home] <a>";
-            }else $query{
+                header("location: index.php");
+                // echo "berhasil <a href='index.php'>[Home] <a>";
+            }else {
                 echo $query;
             }
 
-            echo $nim."|" .$nama_mahasiswa."|".$jenis_kelamin."|".$foto."|".$alamat;
+            // echo $nim."|" .$nama_mahasiswa."|".$jenis_kelamin."|".$foto."|".$alamat;
 
-            echo "tambah data <a href='index.php'>[Home] <a>";
+            // echo "tambah data <a href='index.php'>[Home] <a>";
         }elseif ($_POST['aksi'] == "edit"){
             echo "edit data <a href='index.php'>[Home] <a>";
         }
     }
     if(isset($_GET['hapus'])){
-            echo "hapus data <a href='index.php'>[Home] <a>";
+        $id_mahasiswa = $_GET['hapus'];
+        $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'";
+        $sql = mysqli_query($conn, $query);
+        if($sql){
+                header("location: index.php");
+                // echo "berhasil <a href='index.php'>[Home] <a>";
+            }else {
+                echo $query;
+            }   
+            // echo "hapus data <a href='index.php'>[Home] <a>";
         }
 ?>

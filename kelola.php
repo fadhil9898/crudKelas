@@ -39,9 +39,9 @@
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="fotoMahasiswa" class="col-sm-2 form-label">Foto Mahasiswa</label>
+            <label for="foto" class="col-sm-2 form-label">Foto Mahasiswa</label>
             <div class="col-sm-10">
-                <input class="form-control" name="foto" type="file" id="fotoMahasiswa" >
+                <input class="form-control" name="foto" type="file" id="foto" >
             </div>
         </div>
 
