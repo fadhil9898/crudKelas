@@ -17,15 +17,21 @@
  <div class="container">
     <form action="proses.php" method="POST">
         <div class="mb-3 row">
+            <label for="nim" class="col-sm-2 col-form-label">NIM</label>
+            <div class="col-sm-10">
+                <input type="text" name="nim" class="form-control" id="nim">
+            </div>
+        </div>
+        <div class="mb-3 row">
             <label for="namaMahasiswa" class="col-sm-2 col-form-label">Nama Mahasiswa</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="namaMahasiswa">
+                <input type="text" name="nama" class="form-control" id="namaMahasiswa">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="jk" class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
-                <select id="jk" class="form-select">
+                <select id="jk" name="jenis_kelamin" class="form-select">
                         <option selected>Jenis Kelamin</option>
                         <option value="Laki-Laki">Laki-Laki</option>
                         <option value="perempuan">perempuan</option>
@@ -35,14 +41,14 @@
         <div class="mb-3 row">
             <label for="fotoMahasiswa" class="col-sm-2 form-label">Foto Mahasiswa</label>
             <div class="col-sm-10">
-            <input class="form-control" type="file" id="fotoMahasiswa" >
+                <input class="form-control" name="foto" type="file" id="fotoMahasiswa" >
             </div>
         </div>
 
         <div class="mb-3 row">
             <label for="alamat" class="col-sm-2 col-form-label">alamat</label>
             <div class="col-sm-10">
-                <textarea rows="3" class="form-control" id="alamat"></textarea>
+                <textarea rows="3" name="alamat" class="form-control" id="alamat"></textarea>
             </div>
         </div>
 
