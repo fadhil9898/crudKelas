@@ -6,7 +6,7 @@ include 'koneksi.php';
             $nim = $_POST['nim'];
             $nama_mahasiswa = $_POST['nama'];
             $jenis_kelamin = $_POST['jenis_kelamin'];
-            $foto = "image2.jpg";
+            $foto = "image5.jpg";
             $alamat = $_POST['alamat'];
 
             $query = "INSERT INTO mahasiswa VALUES (null, '$nim', '$nama_mahasiswa', '$jenis_kelamin', '$foto', '$alamat')";
