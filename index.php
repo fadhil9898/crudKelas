@@ -73,7 +73,8 @@
                         <a href="kelola.php?ubah=<?php echo $result['id_mahasiswa']; ?>" type="button" class="btn btn-success btn-sm">
                             edit
                         </a>
-                        <a href="proses.php?hapus=<?php echo $result['id_mahasiswa']; ?>" type="button" class="btn btn-danger btn-sm">
+                        <a href="proses.php?hapus=<?php echo $result['id_mahasiswa']; ?>" type="button" class="btn btn-danger btn-sm"
+                        onclick="return confirm('apakah anda yakin ingin menghapus data ini?')">
                             hapus
                         </a>
                     </td>
