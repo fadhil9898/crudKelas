@@ -15,24 +15,23 @@
     </div>
  </nav>
  <div class="container">
-    <form action="proses.php" method="POST">
+    <form action="proses.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3 row">
             <label for="nim" class="col-sm-2 col-form-label">NIM</label>
             <div class="col-sm-10">
-                <input type="text" name="nim" class="form-control" id="nim">
+                <input required type="text" name="nim" class="form-control" id="nim">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="namaMahasiswa" class="col-sm-2 col-form-label">Nama Mahasiswa</label>
             <div class="col-sm-10">
-                <input type="text" name="nama" class="form-control" id="namaMahasiswa">
+                <input required type="text" name="nama" class="form-control" id="namaMahasiswa">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="jk" class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
-                <select id="jk" name="jenis_kelamin" class="form-select">
-                        <option selected>Jenis Kelamin</option>
+                <select required id="jk" name="jenis_kelamin" class="form-select">
                         <option value="Laki-Laki">Laki-Laki</option>
                         <option value="perempuan">perempuan</option>
                 </select>
@@ -41,14 +40,14 @@
         <div class="mb-3 row">
             <label for="foto" class="col-sm-2 form-label">Foto Mahasiswa</label>
             <div class="col-sm-10">
-                <input class="form-control" name="foto" type="file" id="foto" >
+                <input required class="form-control" name="foto" type="file" id="foto" accept="image/*" >
             </div>
         </div>
 
         <div class="mb-3 row">
             <label for="alamat" class="col-sm-2 col-form-label">alamat</label>
             <div class="col-sm-10">
-                <textarea rows="3" name="alamat" class="form-control" id="alamat"></textarea>
+                <textarea required rows="3" name="alamat" class="form-control" id="alamat"></textarea>
             </div>
         </div>
 
