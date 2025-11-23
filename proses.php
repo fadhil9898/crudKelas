@@ -30,7 +30,33 @@ include 'koneksi.php';
 
             // echo "tambah data <a href='index.php'>[Home] <a>";
         }elseif ($_POST['aksi'] == "edit"){
+            // var_dump ($_POST);
             echo "edit data <a href='index.php'>[Home] <a>";
+
+            $id_mahasiswa = $_POST['id_mahasiswa'];
+            $nim = $_POST['nim'];
+            $nama_mahasiswa = $_POST['nama'];
+            $jenis_kelamin = $_POST['jenis_kelamin'];
+            $alamat = $_POST['alamat'];
+
+            $queryShow = "SELECT * FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa';";
+            $sqlShow = mysqli_query($conn, $queryShow);
+            $result = mysqli_fetch_assoc($sqlShow);
+
+            if($_FILES['foto']['name'] == ""){     
+                $foto = $result['foto_mahasiswa'];
+            }else {
+                $foto = $_FILES['foto']['name'];
+                unlink('img/'.$result['foto_mahasiswa']);
+                move_uploaded_file($_FILES['foto']['tmp_name'],'img/'.$_FILES['foto']['name']);
+            }
+
+            $query = "UPDATE mahasiswa SET nim='$nim', nama_mahasiswa='$nama_mahasiswa', jenis_kelamin='$jenis_kelamin',
+                        alamat='$alamat', foto_mahasiswa='$foto' WHERE id_mahasiswa='$id_mahasiswa';";
+
+            $sql = mysqli_query($conn, $query);
+            header("location: index.php");
+
         }
     }
     if(isset($_GET['hapus'])){

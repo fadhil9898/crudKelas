@@ -67,7 +67,7 @@
                     <td>
                         <?php echo $result['jenis_kelamin']; ?>
                     </td>
-                    <td><img src="img/<?php echo $result['foto_mahasiswa']; ?>" style="width: 50px; "></td>
+                    <td><img src="img/<?php echo $result['foto_mahasiswa']; ?>" style="width: 80px; "></td>
                     <td><?php echo $result['alamat']; ?></td>
                     <td>
                         <a href="kelola.php?ubah=<?php echo $result['id_mahasiswa']; ?>" type="button" class="btn btn-success btn-sm">
