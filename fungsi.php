@@ -45,13 +45,15 @@
 
             return true;
     }
-    // function hapus_data($data){
-    //     $id_mahasiswa = $data['hapus'];
-    //     $queryShow = "SELECT * FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa';";
-    //     $sqlShow = mysqli_query($GLOBALS['conn'], $queryShow);
-    //     $result = mysqli_fetch_assoc($sqlShow);
-    //     unlink("img/".$result['foto_mahasiswa']);
-    //     $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'";
-    //     $sql = mysqli_query($GLOBALS['conn'], $query);
-    // }
+    function hapus_data($data){
+        $id_mahasiswa = $data['hapus'];
+        $queryShow = "SELECT * FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa';";
+        $sqlShow = mysqli_query($GLOBALS['conn'], $queryShow);
+        $result = mysqli_fetch_assoc($sqlShow);
+        unlink("img/".$result['foto_mahasiswa']);
+        $query = "DELETE FROM mahasiswa WHERE id_mahasiswa = '$id_mahasiswa'";
+        $sql = mysqli_query($GLOBALS['conn'], $query);
+
+        return true;
+    }
 ?>

@@ -21,14 +21,14 @@ include 'fungsi.php';
             }
         }
     }
-    // if(isset($_GET['hapus'])){
-    //     hapus_data($_GET);
-    //     if($sql){
-    //             header("location: index.php");
-    //             // echo "berhasil <a href='index.php'>[Home] <a>";
-    //         }else {
-    //             echo $query;
-    //         }   
-    //         // echo "hapus data <a href='index.php'>[Home] <a>";
-    //     }
+    if(isset($_GET['hapus'])){
+        $berhasil = hapus_data($_GET);
+        if($berhasil){
+                header("location: index.php");
+                
+            }else {
+                echo $berhasil;
+            }   
+            // echo "hapus data <a href='index.php'>[Home] <a>";
+        }
 ?>
