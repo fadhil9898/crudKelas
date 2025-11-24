@@ -1,34 +1,17 @@
 <?php
-include 'koneksi.php';
+
+include 'fungsi.php';
     if(isset($_POST['aksi'])){
         if($_POST['aksi'] == "tambah"){
 
+            $berhasil = tambah_data($_POST, $_FILES);
 
-            $nim = $_POST['nim'];
-            $nama_mahasiswa = $_POST['nama'];
-            $jenis_kelamin = $_POST['jenis_kelamin'];
-            $foto = $_FILES['foto']['name'];
-            $alamat = $_POST['alamat'];
-
-            $dir = "img/";
-            $tmpFile = $_FILES['foto']['tmp_name'];
-
-            move_uploaded_file($tmpFile, $dir.$foto);
-
-            $query = "INSERT INTO mahasiswa VALUES (null, '$nim', '$nama_mahasiswa', '$jenis_kelamin', '$foto', '$alamat')";
-            $sql = mysqli_query($conn, $query);
-            
-
-            if($sql){
+            if($berhasil){
                 header("location: index.php");
-                // echo "berhasil <a href='index.php'>[Home] <a>";
             }else {
-                echo $query;
+                echo $berhasil;
             }
 
-            // echo $nim."|" .$nama_mahasiswa."|".$jenis_kelamin."|".$foto."|".$alamat;
-
-            // echo "tambah data <a href='index.php'>[Home] <a>";
         }elseif ($_POST['aksi'] == "edit"){
             // var_dump ($_POST);
             echo "edit data <a href='index.php'>[Home] <a>";
