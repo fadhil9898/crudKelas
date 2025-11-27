@@ -6,7 +6,11 @@
             $nim = $data['nim'];
             $nama_mahasiswa = $data['nama'];
             $jenis_kelamin = $data['jenis_kelamin'];
-            $foto = $files['foto']['name'];
+
+            $split = explode('.',$files['foto']['name']);
+            $ekstensi = $split[count($split)-1];
+
+            $foto = $nim.'.'.$ekstensi;
             $alamat = $data['alamat'];
 
             $dir = "img/";
@@ -33,9 +37,11 @@
             if($files['foto']['name'] == ""){     
                 $foto = $result['foto_mahasiswa'];
             }else {
-                $foto = $files['foto']['name'];
+                $split = explode('.',$files['foto']['name']);
+                $ekstensi = $split[count($split)-1];
+                $foto = $result[$nim].'.'.$ekstensi;
                 unlink('img/'.$result['foto_mahasiswa']);
-                move_uploaded_file($files['foto']['tmp_name'],'img/'.$files['foto']['name']);
+                move_uploaded_file($files['foto']['tmp_name'],'img/'.$foto);
             }
 
             $query = "UPDATE mahasiswa SET nim='$nim', nama_mahasiswa='$nama_mahasiswa', jenis_kelamin='$jenis_kelamin',
